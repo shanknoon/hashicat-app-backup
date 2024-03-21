@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# Copyright (c) HashiCorp, Inc.
+
+>>>>>>> c9c54ed6882a0969f0ff6cdb5db31cb4fdc12a79
 terraform {
   required_providers {
     aws = {
@@ -16,7 +21,12 @@ resource "aws_vpc" "hashicat" {
   enable_dns_hostnames = true
 
   tags = {
+<<<<<<< HEAD
     name = "${var.prefix}-vpc-${var.region}"
+=======
+    name        = "${var.prefix}-vpc-${var.region}"
+    environment = "Production"
+>>>>>>> c9c54ed6882a0969f0ff6cdb5db31cb4fdc12a79
   }
 }
 
@@ -125,9 +135,13 @@ resource "aws_instance" "hashicat" {
   vpc_security_group_ids      = [aws_security_group.hashicat.id]
 
   tags = {
+<<<<<<< HEAD
     Name        = "${var.prefix}-hashicat-instance"
     Environment = "prod"
     Department  = "Hashicat Social"
+=======
+    Name = "${var.prefix}-hashicat-instance"
+>>>>>>> c9c54ed6882a0969f0ff6cdb5db31cb4fdc12a79
   }
 }
 
@@ -197,9 +211,12 @@ resource "aws_key_pair" "hashicat" {
   key_name   = local.private_key_filename
   public_key = tls_private_key.hashicat.public_key_openssh
 }
+<<<<<<< HEAD
 
 module "s3-bucket" {
   source              = "cloudposse/s3-bucket/aws"
   version             = "3.1.0"
   s3_object_ownership = "BucketOwnerEnforced"
 }
+=======
+>>>>>>> c9c54ed6882a0969f0ff6cdb5db31cb4fdc12a79
